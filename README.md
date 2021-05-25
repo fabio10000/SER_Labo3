@@ -1,5 +1,5 @@
 # SER Labo3
-Autheurs:
+Auteurs:
 - da Silva Marques Fabio
 - Forestier Quentin
 
@@ -47,7 +47,7 @@ Il n'y a actuellement aucun problème connu dans notre application
 
 ## Conclusion
 Nous pensons avoir réussi a répondre de manière exhaustive au travail qui était demandé pour ce labo.
-Notre programme fonctionne et affiche le résultat souhaite dans la donnée.
+Notre programme fonctionne et affiche le résultat souhaité dans la donnée.
 
 __Signatures:__
 
