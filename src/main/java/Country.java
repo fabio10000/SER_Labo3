@@ -1,8 +1,11 @@
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
+import org.jdom2.Element;
 
 import java.util.List;
 
+/**
+ * @author Da Silva Marques Fabio, Forestier Quentin
+ * @date 25.05.2021
+ */
 public class Country {
     private String name;
     private String iso_name;
@@ -23,35 +26,34 @@ public class Country {
         return result.toString();
     }
 
-    public Element getXml(Document document) {
-        Element place_mark = document.createElement("Placemark");
+    /**
+     * @brief Obtient le pays sous forme d'Element pour le fichier KML
+     * @param styleName Nom du style dans lequel doit s'afficher le pays
+     * @return Element Jdom2 représentant le pays
+     */
+    public Element getXml(String styleName) {
+        Element place_mark = new Element("Placemark");
 
-        Element extended_data = document.createElement("ExtendedData");
-        place_mark.appendChild(extended_data);
+        Element style_url = new Element("styleUrl");
+        style_url.setText(styleName);
+        place_mark.addContent(style_url);
 
-        Element schema_data = document.createElement("SchemaData");
-        schema_data.setAttribute("schemaUrl", "#countries");
-        extended_data.appendChild(schema_data);
+        Element extended_data = new Element("ExtendedData");
+        place_mark.addContent(extended_data);
 
-        Element simple_data = document.createElement("SimpleData");
-        simple_data.setAttribute("name", "ADMIN");
-        simple_data.appendChild(document.createTextNode(name));
-        schema_data.appendChild(simple_data);
-
-        simple_data = document.createElement("SimpleData");
-        simple_data.setAttribute("name", "ISO_A3");
-        simple_data.appendChild(document.createTextNode(iso_name));
-        schema_data.appendChild(simple_data);
+        Element name = new Element("name");
+        name.setText(this.name);
+        place_mark.addContent(name);
 
         Element polygon_root = place_mark;
         if (border.size() > 1) {
-            Element multi_geometry = document.createElement("MultiGeometry");
-            place_mark.appendChild(multi_geometry);
+            Element multi_geometry = new Element("MultiGeometry");
+            place_mark.addContent(multi_geometry);
             polygon_root = multi_geometry;
         }
 
         for (Polygon polygon : border) {
-            polygon_root.appendChild(polygon.getXml(document));
+            polygon_root.addContent(polygon.getXml());
         }
 
         return place_mark;

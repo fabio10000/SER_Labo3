@@ -1,3 +1,7 @@
+/**
+ * @author Da Silva Marques Fabio, Forestier Quentin
+ * @date 25.05.2021
+ */
 public class Coordinate {
     private double x;
     private double y;
