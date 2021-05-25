@@ -36,10 +36,10 @@ Classe principale du programme qui permet d'utiliser la classe GeoJson afin de c
 Il n'y a actuellement aucun problème connu dans notre application
 
 ## Affichage du parsing du fichier geojson
-todo: capture d'écran
+![parsing geojson](./pictures/parsing.png)
 
 ## Affichage du résultat du fichier kml
-todo: ajouter capture d'écran
+![resultat kml](./pictures/kml.png)
 
 ## Nos apprentissages
 - parsing de fichiers json a l'aide de la librairie json-simple
@@ -48,3 +48,7 @@ todo: ajouter capture d'écran
 ## Conclusion
 Nous pensons avoir réussi a répondre de manière exhaustive au travail qui était demandé pour ce labo.
 Notre programme fonctionne et affiche le résultat souhaite dans la donnée.
+
+__Signatures:__
+
+
